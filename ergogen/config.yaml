@@ -1,9 +1,53 @@
 meta:
   engine: 4.1.0
 units:
+  units:
+  # Proxy Spacing Variables
+  kx: cx
+  ky: cy
+  # Padding Variables
+  px: kx + 2
+  py: ky + 2
 points:
   zones:
     matrix:
+      key:
+        padding: 1ky
+        spread: 1kx
+      columns:
+        outer:
+          rows.bottom.skip: true
+        pinky:
+          key.stagger: ky / 2 -2
+        ring:
+          key.stagger: 12
+        middle:
+          key.stagger: 5
+        index:
+          key.stagger: -6
+        inner:
+          key.stagger: 0
+      rows:
+        bottom:
+        home:
+        top:
+    thumb:
+      key:
+        padding: 1ky
+        spread: 1kx
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [-18, -18]
+      columns:
+        near:
+        home:
+        far:
 outlines:
+  keys:
+    - what: rectangle
+      where: true
+      # size: [kx,ky]
+      size: [kx-0.1,ky-0.1]
+      # size: [kx-0.5,ky-0.5]
 pcbs:
 cases:
