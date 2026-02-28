@@ -156,12 +156,16 @@ pcbs:
         what: switch_choc_v1_v2
         where: true
         params:
-          choc_v2_support: false
+          # default (but important)
           hotswap: true
-          reversible: true
-          solder: true
+          include_traces_vias: true
+          # modified
           from: "{{column_net}}"
           to: "{{colrow}}"
+          choc_v2_support: false
+          include_corner_marks: true
+          reversible: true
+          solder: true
 
 
 
