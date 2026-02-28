@@ -20,6 +20,7 @@ units:
 points:
   zones:
     matrix:
+      anchor.shift: [50, -100]
       key:
         padding: 1ky
         spread: 1kx
@@ -75,10 +76,6 @@ outlines:
       # size: [kx,ky]
       size: [kx-0.1,ky-0.1]
       # size: [kx-0.5,ky-0.5]
-  raw:
-    - what: rectangle
-      where: true
-      size: [px, py]
   board:
     - what: polygon
       operation: stack
@@ -135,6 +132,21 @@ outlines:
       name: keys
 
 pcbs:
+  oregano:
+    template: kicad8
+    outlines:
+      main:
+        outline: board
+    footprints:
+      choc_hotswap:
+        what: choc
+        where: true
+        params:
+          keycaps: true
+          reverse: false
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
 
 
 cases:
