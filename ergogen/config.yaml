@@ -173,7 +173,22 @@ pcbs:
           include_corner_marks: true
           reversible: true
           solder: true
-
-
+          hotswap_pads_same_side: true
+          include_keycap: true
+          keycap_height: 17
+      diode:
+        what: diode_tht_sod123
+        where: true
+        params:
+          reversible: true
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -3.4]
+      diode-key-route:
+        what: utility_router
+        where: true
+        params:
+          # route: "f(-5.842 -5.08) (-6.5 -4) (-6.5 2) (-6 2.5) (1.2 2.5) (1.7 3) (1.7 5)"
 
 cases:
