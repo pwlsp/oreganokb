@@ -17,7 +17,6 @@ units:
   bp: 1
 
 
-
 points:
   zones:
     matrix:
@@ -68,7 +67,6 @@ points:
   # mirror: &mirror
   #     ref: matrix_inner_bottom
   #     distance: 5kx
-
 
 
 outlines:
@@ -134,7 +132,6 @@ outlines:
       name: keys
 
 
-
 pcbs:
   oregano:
     template: kicad8
@@ -142,6 +139,7 @@ pcbs:
       main:
         outline: board
     footprints:
+      # # for default ergogen footprint
       # choc_hotswap:
       #   what: choc
       #   where: true
@@ -151,6 +149,15 @@ pcbs:
       #     hotswap: true
       #     from: "{{column_net}}"
       #     to: "{{colrow}}"
+      #
+      # diode:
+      #   what: diode
+      #   where: true
+      #   params:
+      #     from: "{{colrow}}"
+      #     to: "{{row_net}}"
+      #   adjust:
+      #     shift: [0, -5]
       
       choc_hotswap:
         what: switch_choc_v1_v2
