@@ -17,6 +17,7 @@ units:
   bp: 1
 
 
+
 points:
   zones:
     matrix:
@@ -67,6 +68,7 @@ points:
   # mirror: &mirror
   #     ref: matrix_inner_bottom
   #     distance: 5kx
+
 
 
 outlines:
@@ -131,6 +133,8 @@ outlines:
     - operation: subtract
       name: keys
 
+
+
 pcbs:
   oregano:
     template: kicad8
@@ -147,25 +151,18 @@ pcbs:
       #     hotswap: true
       #     from: "{{column_net}}"
       #     to: "{{colrow}}"
+      
       choc_hotswap:
-        type: choc
-        nets:
-          from: =column_net
-          to: GND
+        what: switch_choc_v1_v2
+        where: true
         params:
-            keycaps: true
-            reverse: true
-            hotswap: true
-      choc:
-        type: choc
-        anchor:
-          rotate: 180
-        nets:
-          from: =column_net
-          to: GND
-        params:
-            keycaps: true
-            reverse: true
+          choc_v2_support: false
+          hotswap: true
+          reversible: true
+          solder: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+
 
 
 cases:
