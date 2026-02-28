@@ -138,15 +138,34 @@ pcbs:
       main:
         outline: board
     footprints:
+      # choc_hotswap:
+      #   what: choc
+      #   where: true
+      #   params:
+      #     keycaps: true
+      #     reverse: true
+      #     hotswap: true
+      #     from: "{{column_net}}"
+      #     to: "{{colrow}}"
       choc_hotswap:
-        what: choc
-        where: true
+        type: choc
+        nets:
+          from: =column_net
+          to: GND
         params:
-          keycaps: true
-          reverse: false
-          hotswap: true
-          from: "{{column_net}}"
-          to: "{{colrow}}"
+            keycaps: true
+            reverse: true
+            hotswap: true
+      choc:
+        type: choc
+        anchor:
+          rotate: 180
+        nets:
+          from: =column_net
+          to: GND
+        params:
+            keycaps: true
+            reverse: true
 
 
 cases:
