@@ -14,7 +14,7 @@ units:
   $default_height: cy
 
   # board padding (some points need manual correction for now)
-  bp: 2
+  bp: 1
 
 
 points:
@@ -60,7 +60,6 @@ points:
             splay: -16
             shift: [9.5, -4.5]
 
-  
   # # Mirror and rotate for preview:
   #
   # rotate: -25
@@ -114,8 +113,8 @@ outlines:
           shift: [1.80px,0.5px+bp]
         - ref: matrix_inner_bottom
           shift: [1.80px,-0.5px-bp]
-        - ref: thumb_far
-          shift: [-0.5px-bp,0.5px+bp+7.6]
+        # - ref: thumb_far
+        #   shift: [-0.5px-bp,0.5px+bp+7.6]
         - ref: thumb_far
           shift: [0.5px+bp,0.5px+bp]
         - ref: thumb_far
