@@ -36,7 +36,6 @@ points:
         index:
           key.stagger: -6
         inner:
-          key.stagger: 0
       rows:
         bottom:
         home:
@@ -107,23 +106,23 @@ outlines:
         - ref: matrix_index_top
           shift: [-0.5px+2+bp,0.5py+bp]
         - ref: matrix_inner_top
-          shift: [1.80px,0.5px+bp]
+          shift: [1.80px,0.5py+bp]
         - ref: matrix_inner_bottom
-          shift: [1.80px,-0.5px-bp]
+          shift: [1.80px,-0.5py-bp]
         # - ref: thumb_far
         #   shift: [-0.5px-bp,0.5px+bp+7.6]
         - ref: thumb_far
-          shift: [0.5px+bp,0.5px+bp]
+          shift: [0.5px+bp,0.5py+bp]
         - ref: thumb_far
           shift: [0.5px+bp,-0.5py-bp]
         - ref: thumb_far
-          shift: [-0.5px-bp,-0.5px-bp]
+          shift: [-0.5px-bp,-0.5py-bp]
         - ref: thumb_home
-          shift: [-0.5px-bp,-0.5px-bp]
+          shift: [-0.5px-bp,-0.5py-bp]
         - ref: thumb_near
-          shift: [-0.5px-bp,-0.5px-bp]
+          shift: [-0.5px-bp,-0.5py-bp]
         - ref: matrix_pinky_bottom
-          shift: [3kx-bp,-0.5px-bp]
+          shift: [3kx-bp,-0.5py-bp]
       fillet: 2
   combo:
     - name: board
@@ -185,10 +184,20 @@ pcbs:
           to: "{{row_net}}"
         adjust:
           shift: [0, -3.4]
-      diode-key-route:
+      diode-key-route: # TODO
         what: utility_router
         where: true
         params:
           # route: "f(-5.842 -5.08) (-6.5 -4) (-6.5 2) (-6 2.5) (1.2 2.5) (1.7 3) (1.7 5)"
-
+      mcu:
+        what: mcu_nice_nano
+        params:
+          # orientation: "down"
+          # reversable_pins: 13
+          reversible: true
+          reverse_mount: false
+          show_instructions: true
+        where:
+          ref: matrix_inner_top
+          shift: [21,-8]
 cases:
