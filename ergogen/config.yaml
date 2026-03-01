@@ -191,13 +191,28 @@ pcbs:
           # route: "f(-5.842 -5.08) (-6.5 -4) (-6.5 2) (-6 2.5) (1.2 2.5) (1.7 3) (1.7 5)"
       mcu:
         what: mcu_nice_nano
-        params:
-          # orientation: "down"
-          # reversable_pins: 13
-          reversible: true
-          reverse_mount: false
-          show_instructions: true
         where:
           ref: matrix_inner_top
           shift: [21,-8]
+        params:
+          reversible: true
+          reverse_mount: true
+          show_instructions: true
+      display:
+        what: display_nice_view
+        where:
+          ref: matrix_inner_top
+          shift: [21,-8-3.5]
+        params:
+          reversible: true
+          invert_jumpers_position: true
+          # MOSI: "DA"
+          # SCK: "CL"
+
+          # reverse: true
+        #   SDA: P2
+        #   SCL: P3
+          # CS: ""
+        
+        
 cases:
