@@ -22,24 +22,30 @@ points:
     matrix:
       anchor.shift: [50, -100]
       key:
-        padding: 1ky
-        spread: 1kx
+        padding: 1ky+0.4
+        spread: 1kx+0.4
       columns:
         outer:
           rows.bottom.skip: true
+          key.column_net: P4
         pinky:
           key.stagger: ky / 2 - 2
+          key.column_net: P5
         ring:
           key.stagger: 13
+          key.column_net: P6
         middle:
           key.stagger: 5
+          key.column_net: P7
         index:
           key.stagger: -6
+          key.column_net: P8
         inner:
+          key.column_net: P9
       rows:
-        bottom:
-        home:
-        top:
+        bottom.row_net: P16
+        home.row_net: P14
+        top.row_net: P15
     thumb:
       key:
         padding: 1ky
@@ -51,14 +57,18 @@ points:
         near:
           key:
             splay: -10
+            column_net: P4
         home:
           key:
             splay: -16
             shift: [4.5, -3]
+            column_net: P5
         far:
           key:
             splay: -16
             shift: [9.5, -4.5]
+            column_net: P6
+      rows.row.row_net: P10
 
   # # Mirror and rotate for preview:
   #
@@ -109,17 +119,17 @@ outlines:
           shift: [1.80px,0.5py+bp]
         - ref: matrix_inner_bottom
           shift: [1.80px,-0.5py-bp]
-        # - ref: thumb_far
+        # - ref: thumb_far_row
         #   shift: [-0.5px-bp,0.5px+bp+7.6]
-        - ref: thumb_far
+        - ref: thumb_far_row
           shift: [0.5px+bp,0.5py+bp]
-        - ref: thumb_far
+        - ref: thumb_far_row
           shift: [0.5px+bp,-0.5py-bp]
-        - ref: thumb_far
+        - ref: thumb_far_row
           shift: [-0.5px-bp,-0.5py-bp]
-        - ref: thumb_home
+        - ref: thumb_home_row
           shift: [-0.5px-bp,-0.5py-bp]
-        - ref: thumb_near
+        - ref: thumb_near_row
           shift: [-0.5px-bp,-0.5py-bp]
         - ref: matrix_pinky_bottom
           shift: [3kx-bp,-0.5py-bp]
@@ -191,8 +201,8 @@ pcbs:
         params:
           reversible: true
           invert_jumpers_position: true
-          MOSI: "DA"
-          SCK: "CL"
+          MOSI: P2 # MOSI: "DA" # SDA: P2
+          SCK: P3 # SCK: "CL" # SCL: P3
 
       reset:
         what: wuerth-434121025816 
