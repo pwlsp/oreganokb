@@ -16,14 +16,22 @@ units:
   # board padding (some points need manual correction for now)
   bp: 1
 
+  # mcu shift
+  mcux: 21
+
+  # inner-side border distance from mcu
+  innerborderx: mcux + 12
+
+  # key gap
+  keygap: 0.4
 
 points:
   zones:
     matrix:
       anchor.shift: [50, -100]
       key:
-        padding: 1ky+0.4
-        spread: 1kx+0.4
+        padding: 1ky+keygap
+        spread: 1kx+keygap
       columns:
         outer:
           rows.bottom.skip: true
@@ -116,9 +124,9 @@ outlines:
         - ref: matrix_index_top
           shift: [-0.5px+2+bp,0.5py+bp]
         - ref: matrix_inner_top
-          shift: [1.80px,0.5py+bp]
+          shift: [innerborderx,0.5py+bp]
         - ref: matrix_inner_bottom
-          shift: [1.80px,-0.5py-bp]
+          shift: [innerborderx,-0.5py-bp]
         # - ref: thumb_far_row
         #   shift: [-0.5px-bp,0.5px+bp+7.6]
         - ref: thumb_far_row
@@ -162,7 +170,7 @@ pcbs:
           choc_v2_support: false
           include_corner_marks: true
           reversible: true
-          solder: true
+          # solder: true
           hotswap_pads_same_side: true
           include_keycap: true
           keycap_height: 17
@@ -177,17 +185,17 @@ pcbs:
         adjust:
           shift: [0, -3.4]
       
-      diode-key-route: # TODO
-        what: utility_router
-        where: true
-        params:
+      # diode-key-route: # TODO
+      #   what: utility_router
+      #   where: true
+      #   params:
           # route: "f(-5.842 -5.08) (-6.5 -4) (-6.5 2) (-6 2.5) (1.2 2.5) (1.7 3) (1.7 5)"
 
       mcu:
         what: mcu_supermini_nrf52840
         where:
           ref: matrix_inner_top
-          shift: [21,-8]
+          shift: [mcux,-8]
         params:
           reversible: true
           reverse_mount: true
@@ -197,7 +205,7 @@ pcbs:
         what: display_nice_view
         where:
           ref: matrix_inner_top
-          shift: [21,-8-3.5]
+          shift: [mcux,-8-3.5]
         params:
           reversible: true
           invert_jumpers_position: true
@@ -212,7 +220,64 @@ pcbs:
         where:
           ref: matrix_inner_top
           shift: [17, -40]
-          rotate: -90
+          rotate: -90      
 
-        
-cases:
+      battery_connector:
+        what: jst-s2b-ph-kl
+        params:
+          neg: GND
+          pos: sw1
+        where:
+          ref: matrix_inner_top
+          shift: [23, -41]
+          rotate: 90
+
+      on_off_switch:
+        what: pcm12
+        params:
+          from: sw1
+          to: RAW
+        where:
+          ref: matrix_inner_top
+          shift: [35.85, -51]
+          rotate: 110.5
+
+      mhole_pinky:
+        what: mounting_hole_plated
+        where:
+          ref.aggregate.parts:
+            - matrix_outer_top
+            - matrix_pinky_home
+          shift: [0.25, 3.15]
+      
+      mhole_middle_low:
+        what: mounting_hole_plated
+        where:
+          ref.aggregate.parts:
+            - matrix_ring_bottom
+            - matrix_middle_bottom
+          shift: [0,-3]
+      
+      mhole_middle_high:
+        what: mounting_hole_plated
+        where:
+          ref.aggregate.parts:
+            - matrix_middle_top
+            - matrix_middle_home
+          shift: [-9-0.5*keygap,0]
+
+      mhole_index:
+        what: mounting_hole_plated
+        where:
+          ref.aggregate.parts:
+            - matrix_index_bottom
+            - matrix_index_home
+            - matrix_inner_bottom
+            - matrix_inner_home
+
+      mhole_thumb:
+        what: mounting_hole_plated
+        where:
+          ref.aggregate.parts:
+            - thumb_far_row
+            - thumb_home_row
