@@ -219,17 +219,37 @@ pcbs:
           r2: GND
         where:
           ref: matrix_inner_top
-          shift: [17, -40]
+          shift: [15, -40]
           rotate: -90      
 
+      # battery_connector2:
+      #   what: jst-s2b-ph-kl
+      #   params:
+      #     neg: GND
+      #     pos: sw1
+      #     # Info from footprint file:
+      #     # params: {
+      #     #   pos: { type: 'net', value: 'pos' },
+      #     #   neg: { type: 'net', value: 'neg' },
+      #     # }, 
+      #   where:
+      #     ref: matrix_inner_top
+      #     shift: [23, -41]
+      #     rotate: 90
+        
       battery_connector:
-        what: jst-s2b-ph-kl
+        what: battery_connector_jst_ph_2
         params:
-          neg: GND
-          pos: sw1
+          reversible: true
+          # neg: GND
+          # pos: sw1
+          # Info from footprint file:
+          # (params:)
+          # BAT_P: { type: 'net', value: 'BAT_P' },
+          # BAT_N: { type: 'net', value: 'GND' },
         where:
           ref: matrix_inner_top
-          shift: [23, -41]
+          shift: [22, -40]
           rotate: 90
 
       on_off_switch:
