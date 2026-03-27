@@ -259,8 +259,8 @@ pcbs:
           to: RAW
         where:
           ref: matrix_inner_top
-          shift: [35.85, -51]
-          rotate: 110.5
+          shift: [34.5, -53.5]
+          rotate: 115.4
 
       mhole_pinky:
         what: mounting_hole_plated
