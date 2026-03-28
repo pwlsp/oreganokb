@@ -195,6 +195,7 @@ pcbs:
 
       mcu:
         what: mcu_supermini_nrf52840
+        # what: mcu_nice_nano
         where:
           ref: matrix_inner_top
           shift: [mcux,mcuy]
@@ -211,6 +212,9 @@ pcbs:
         params:
           reversible: true
           invert_jumpers_position: true
+          CS: P1 # Default pinout from website:
+          # https://nicekeyboards.com/docs/nice-view/pinout-schematic
+
           MOSI: P2 # MOSI: "DA" # SDA: P2
           SCK: P3 # SCK: "CL" # SCL: P3
 
