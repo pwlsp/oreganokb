@@ -18,12 +18,13 @@ units:
 
   # mcu shift
   mcux: 21
+  mcuy: -8
 
   # inner-side border distance from mcu
   innerborderx: mcux + 12
 
   # key gap
-  keygap: 0.4
+  keygap: 0.5
 
 points:
   zones:
@@ -182,6 +183,7 @@ pcbs:
           reversible: true
           from: "{{colrow}}"
           to: "{{row_net}}"
+          include_traces_vias: true
         adjust:
           shift: [0, -3.4]
       
@@ -195,7 +197,7 @@ pcbs:
         what: mcu_supermini_nrf52840
         where:
           ref: matrix_inner_top
-          shift: [mcux,-8]
+          shift: [mcux,mcuy]
         params:
           reversible: true
           reverse_mount: true
@@ -205,7 +207,7 @@ pcbs:
         what: display_nice_view
         where:
           ref: matrix_inner_top
-          shift: [mcux,-8-3.5]
+          shift: [mcux,mcuy-3.5]
         params:
           reversible: true
           invert_jumpers_position: true
@@ -219,8 +221,7 @@ pcbs:
           r2: GND
         where:
           ref: matrix_inner_top
-          shift: [15, -40]
-          rotate: -90      
+          shift: [mcux, mcuy-31.5]
 
       # battery_connector2:
       #   what: jst-s2b-ph-kl
@@ -241,16 +242,16 @@ pcbs:
         what: battery_connector_jst_ph_2
         params:
           reversible: true
-          # neg: GND
-          # pos: sw1
+          BAT_P: sw1
+          BAT_N: GND
           # Info from footprint file:
           # (params:)
           # BAT_P: { type: 'net', value: 'BAT_P' },
           # BAT_N: { type: 'net', value: 'GND' },
         where:
           ref: matrix_inner_top
-          shift: [22, -40]
-          rotate: 90
+          shift: [mcux+6, mcuy-39]
+          rotate: 270
 
       on_off_switch:
         what: pcm12
@@ -290,9 +291,9 @@ pcbs:
         what: mounting_hole_plated
         where:
           ref.aggregate.parts:
-            - matrix_index_bottom
+            - matrix_index_top
             - matrix_index_home
-            - matrix_inner_bottom
+            - matrix_inner_top
             - matrix_inner_home
 
       mhole_thumb:
@@ -301,3 +302,15 @@ pcbs:
           ref.aggregate.parts:
             - thumb_far_row
             - thumb_home_row
+
+      mhole_display_outer:
+        what: mounting_hole_plated
+        where:
+          ref: matrix_inner_top
+          shift: [mcux-8, mcuy-25]
+      
+      mhole_display_inner:
+        what: mounting_hole_plated
+        where:
+          ref: matrix_inner_top
+          shift: [mcux+8, mcuy-25]
