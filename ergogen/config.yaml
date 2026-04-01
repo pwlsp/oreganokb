@@ -231,7 +231,7 @@ pcbs:
       #   what: jst-s2b-ph-kl
       #   params:
       #     neg: GND
-      #     pos: sw1
+      #     pos: sw1 # BAT_P? (reminder, just in case)
       #     # Info from footprint file:
       #     # params: {
       #     #   pos: { type: 'net', value: 'pos' },
@@ -246,7 +246,7 @@ pcbs:
         what: battery_connector_jst_ph_2
         params:
           reversible: true
-          BAT_P: sw1
+          BAT_P: BAT_P
           BAT_N: GND
           # Info from footprint file:
           # (params:)
@@ -260,7 +260,7 @@ pcbs:
       on_off_switch:
         what: pcm12
         params:
-          from: sw1
+          from: BAT_P
           to: RAW
         where:
           ref: matrix_inner_top
