@@ -103,27 +103,27 @@ outlines:
         - ref: matrix_pinky_bottom
           shift: [-0.5px-bp,-0.5py-bp]
         - ref: matrix_outer_home
-          shift: [0.5px-2-bp,-0.5py-bp]
+          shift: [0.5px+keygap-2-bp,-0.5py-bp]
         - ref: matrix_outer_home
           shift: [-0.5px-bp,-0.5py-bp]
         - ref: matrix_outer_top
           shift: [-0.5px-bp,0.5py+bp]
         - ref: matrix_outer_top
-          shift: [0.5px-2-bp,0.5py+bp]
+          shift: [0.5px+keygap-2-bp,0.5py+bp]
         - ref: matrix_pinky_top
           shift: [-0.5px-bp,0.5py+bp]
         - ref: matrix_pinky_top
-          shift: [0.5px-2-bp,0.5py+bp]
+          shift: [0.5px+keygap-2-bp,0.5py+bp]
         - ref: matrix_ring_top
           shift: [-0.5px-bp,0.5py+bp]
         - ref: matrix_ring_top
-          shift: [0.5px-2-bp,0.5py+bp]
+          shift: [0.5px+keygap-2-bp,0.5py+bp]
         - ref: matrix_middle_top
           shift: [-0.5px-bp,0.5py+bp]
         - ref: matrix_middle_top
           shift: [0.5px+bp,0.5py+bp]
         - ref: matrix_index_top
-          shift: [-0.5px+2+bp,0.5py+bp]
+          shift: [-0.5px-keygap+2+bp,0.5py+bp]
         - ref: matrix_inner_top
           shift: [innerborderx,0.5py+bp]
         - ref: matrix_inner_bottom
