@@ -1,4 +1,0 @@
-[submodule "zmk/oregano-zmk-config"]
-	path = zmk/oregano-zmk-config
-	url = git@github.com:pwlsp/oregano-zmk-config.git
-
