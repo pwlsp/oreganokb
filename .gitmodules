@@ -1,0 +1,3 @@
+[submodule "zmk/oreganokb-zmk-config"]
+	path = zmk/oreganokb-zmk-config
+	url = git@github.com:pwlsp/oreganokb-zmk-config.git
