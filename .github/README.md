@@ -14,7 +14,7 @@ Thanks [KiCad](https://www.kicad.org),
 [FlatFootFox](https://flatfootfox.com/ergogen-introduction/),
 [Christian Selig](https://youtu.be/7UXsD7nSfDY?si=RpAxVBA9T7kh9S_W),
 [Joe Scotto](https://youtu.be/l5kAx08Iom4?si=qxbWYizypEf4wrtC),
-[LAG](https://github.com/Linux-Academic-Group),
+[LAG](https://github.com/Linux-Academic-Group)
 .
 
 ![final result](images/final-result.jpg)
